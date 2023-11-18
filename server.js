@@ -24,14 +24,4 @@ app.get("/", (req, res) => {
     res.redirect(`/${uuidv4()}`);
 });
 
-app.get("/:room", (req, res) => {
-    res.render("index", { roomId: req.params.room });
-});
-
-io.on("connection", (socket) => {
-    socket.on("join-room", (roomId, userId) => {
-        socket.join(roomId);
-    })
-});
-
 server.listen(3030);
